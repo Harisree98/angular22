@@ -7,4 +7,12 @@ import { Child } from '../child/child';
   styleUrl: './parent.css',
   templateUrl: './parent.html',
 })
-export class Parent {}
+export class Parent {
+
+  getAddress(e: any) {
+    console.log(e);
+  }
+
+
+
+}

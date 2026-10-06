@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   imports: [],
@@ -8,15 +9,22 @@ import { Component, Input } from '@angular/core';
 })
 export class Child {
 
-  @Input() name:any;
+  @Input() name: any;
+  @Output() address  = new EventEmitter();
 
-  constructor(){
-    
+
+  constructor() {
+   
   }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log("name",this.name)
+     console.log("parent to child:",this.name)
   }
+
+   sendAddress(){
+    this.address.emit("hyderabad");
+   }
+
 }

@@ -1,0 +1,22 @@
+<form [formGroup]="studentForm" (ngSubmit)="submitStudentForm()">
+    <div>
+        <div>
+            <label for="firstname">First Name:  </label>
+            <span style="color:red"> *</span>
+            <input id="firstname" name=firstname type="text" formControlName="firstName" />
+            @if(studentForm.get('firstName')?.touched && studentForm.get('firstName')?.invalid){
+                <p style="color:red">FirstName is a required field</p>
+            } 
+        </div>
+        <div>
+            <label for="lastname">Last Name: </label>
+            <input id="lastname" name="lastname" type="text" formControlName="lastName" />
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" formControlName="email" />
+        </div>
+
+        <button type="submit">Submit</button>
+    </div>
+</form>

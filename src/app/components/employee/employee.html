@@ -1,0 +1,39 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmitEmployeeForm()">
+    <div>
+        <div>
+            <label for="firstName">FirstName: </label>
+            <span style="color:red">*</span>
+            <input id="firstName" name="firstName" formControlName="firstName" />
+            @if(employeeForm.get('firstName')?.invalid && employeeForm.get('firstName')?.touched){
+            <p style="color:red">Please give First Name</p>
+            }
+        </div>
+
+        <div>
+            <label for="lastName">LastName: </label>
+            <input id="lastName" name="lastName" formControlName="lastName" />
+        </div>
+
+        <div>
+            <label for="email">Email: </label>
+            <input id="email" name="email" formControlName="email" />
+
+            @if (employeeForm.get('email')?.touched) {
+
+                @if (employeeForm.get('email')?.hasError('required')) {
+                <p style="color:red">Email is required</p>
+                }
+
+                @if (employeeForm.get('email')?.hasError('email')) {
+                <p style="color:red">Please enter a valid email address</p>
+                }
+            }
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+            <button type="reset" (click)="resetForm()">Reset</button>
+        </div>
+
+    </div>
+</form>

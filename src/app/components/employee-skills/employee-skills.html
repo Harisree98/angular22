@@ -1,0 +1,54 @@
+<!-- <form [formGroup]="employeeForm">
+    <div>
+        <label for="name">Name:  </label>
+        <input type="text" id="name" name="name" formControlName="name"/>
+    </div>
+
+      <button>Add skills</button>
+    <div formArrayName="skills">
+      @for(skill of skills.controls; track $index){
+      
+      }
+    </div>
+</form> -->
+
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+  <label>Employee Name:</label>
+  <input formControlName="name">
+
+  <h3>Skills</h3>
+
+  <div formArrayName="skills">
+
+    @for (skill of skills.controls; track $index) {
+
+      <div>
+        <input [formControlName]="$index">
+
+        <button
+          type="button"
+          (click)="removeSkill($index)">
+          Remove
+        </button>
+      </div>
+      
+
+    }
+
+  </div>
+
+  <br>
+
+  <button
+    type="button"
+    (click)="addSkill()">
+    Add Skill
+  </button>
+
+  <button type="submit">
+    Submit
+  </button>
+
+</form>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Child } from '../child/child';
 
 @Component({
@@ -7,11 +7,20 @@ import { Child } from '../child/child';
   styleUrl: './parent.css',
   templateUrl: './parent.html',
 })
-export class Parent {
+export class Parent implements AfterViewInit{
+
+  @ViewChild(Child)private childComp: any;
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.childComp.setAddress("Calcutta");
+  }
 
   getAddress(e: any) {
     console.log(e);
   }
+
 
 
 

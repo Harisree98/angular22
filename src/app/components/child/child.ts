@@ -20,11 +20,16 @@ export class Child {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-     console.log("parent to child:",this.name)
+     console.log("parent to child:",this.name);
+   
   }
 
    sendAddress(){
     this.address.emit("hyderabad");
+   }
+
+   setAddress(address:string){
+    console.log("in child, adress recieved from view child:",address);
    }
 
 }

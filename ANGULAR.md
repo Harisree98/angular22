@@ -13,5 +13,10 @@ parent, child components --> for @Input, @output,@view child Implementation
 
 
 
+accordionparent, accoridion child --> for @view children
+
+
+heading - @viewchild - for manipulating DOM ELEMENTS 
+
 
 

@@ -7,10 +7,11 @@ import { RouterOutlet } from '@angular/router';
 // import { Parent } from './components/parent/parent';
 // import { Employeeparent } from './components/employeeparent/employeeparent';
 import { Accordionparent } from './components/accordionparent/accordionparent';
+import { Heading } from './components/heading/heading';
 
 
 @Component({
-  imports: [Accordionparent],
+  imports: [Heading],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

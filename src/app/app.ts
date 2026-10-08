@@ -8,10 +8,11 @@ import { RouterOutlet } from '@angular/router';
 // import { Employeeparent } from './components/employeeparent/employeeparent';
 import { Accordionparent } from './components/accordionparent/accordionparent';
 import { Heading } from './components/heading/heading';
+import { Headingchild } from './components/headingchild/headingchild';
 
 
 @Component({
-  imports: [Heading],
+  imports: [Headingchild],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

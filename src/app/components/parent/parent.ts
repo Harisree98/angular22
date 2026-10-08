@@ -9,19 +9,13 @@ import { Child } from '../child/child';
 })
 export class Parent implements AfterViewInit{
 
-  @ViewChild(Child)private childComp: any;
+  @ViewChild(Child) private childComp:any;
 
   ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
-    this.childComp.setAddress("Calcutta");
+    this.childComp.setGreeting("How are you?");
   }
 
   getAddress(e: any) {
     console.log(e);
   }
-
-
-
-
 }

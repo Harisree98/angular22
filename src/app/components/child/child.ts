@@ -12,6 +12,8 @@ export class Child {
   @Input() name: any;
   @Output() address  = new EventEmitter();
 
+  greeting:any;
+
 
   constructor() {
    
@@ -28,8 +30,8 @@ export class Child {
     this.address.emit("hyderabad");
    }
 
-   setAddress(address:string){
-    console.log("in child, adress recieved from view child:",address);
+   setGreeting(greeting:string){
+    console.log("in child, address recieved from view child(from parent to child):",greeting);
    }
 
 }

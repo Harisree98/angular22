@@ -1,0 +1,326 @@
+<!-- showing only IT guys -->
+<!-- @for(employee of employees;track employee.id){
+    @if(employee.department=== 'IT'){
+        <p>Hello {{employee.name}}</p>
+    }
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- Showing all employees -->
+
+<!-- @for(employee of employees;track employee.id){
+    <p>{{employee.name}}</p>
+} -->
+
+
+<!-- ___________________________________________________________ -->
+
+<!-- Display only employees whose isActive property is true. -->
+
+<!-- @for(employee of employees;track employee.id){
+    @if(employee.isActive){
+        <p>{{employee.name}}</p>
+    }
+} -->
+
+
+
+<!-- ___________________________________________________________ -->
+
+<!-- Display employees whose salary is greater than ₹60,000 -->
+
+<!-- @for(employee of employees ; track employee.id){
+    @if(employee.salary > 60000){
+        <p>{{employee.name}}</p>
+    }
+} -->
+<!-- ___________________________________________________________ -->
+
+
+<!-- Display employees who:
+
+Belong to the IT department.
+
+Are active. -->
+
+<!-- @for(employee of employees ; track employee.id){
+    @if(employee.department === 'IT' && employee.isActive   ){
+        <p>{{employee.name}}</p>
+    }
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- Implement empty loop -->
+
+<!-- @if(employees.filter(employee=>employee.salary >160000); as highEarners){
+    @for(emp of highEarners;track emp.id){
+        <p>{{emp.name}}</p>
+    }
+    @empty{
+        <p>No employees found</p>
+    }
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- Display each employee's name and:
+
+Available if isActive is true.
+
+Not Available otherwise. -->
+
+
+<!-- @for(employee of employees;track employee.id){
+    @if(employee.isActive){
+        <p>{{employee.name}} - Available</p>
+    } 
+    @else {
+         <p>{{employee.name}} - Not Available</p>
+    }
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- For every employee:
+
+If the department is IT, display Technical Team.
+
+Otherwise, display Non-Technical Team. -->
+
+<!-- 
+@for(employee of employees;track employee.id){
+    @if(employee.department === 'IT'){
+        <p>{{employee.name}} - Technical Team</p>
+    } 
+    @else {
+         <p>{{employee.name}} - Non Technical Team</p>
+    }
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- @for(employee of employees; track employee.id;let i=$index, first = $first, last= $last, count=$count, even = $even, odd
+=$odd){
+<p>
+    {{i}} {{employee.name}}
+
+    @if(first){
+    | FIRST
+    }
+    @if(last){
+    | LAST
+    }
+    @if(even){
+    | EVEN
+    }
+    @if(odd){
+    | ODD
+    }
+    count:{{count}}
+</p>
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- Loop through all employees. For each employee:
+
+If the employee is active, display their name.
+
+Inside that condition, check whether their salary is greater than ₹50,000.
+
+If it is, display High Salary; otherwise, display Standard Salary.
+
+If the employee is inactive, display Employee Inactive. -->
+
+<!-- 
+@for(employee of employees;track employee.id){
+<p>
+    @if(employee.isActive){
+    {{employee.name}}
+    @if(employee.salary > 50000){
+    | High Salary
+    } @else {
+    | Standard Salary
+    }
+    @if(employee.isActive){
+    | Active
+    } @else {
+    | Inactive
+    }
+    }
+
+</p>
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- Loop through the employees and display only IT employees. Within the IT 
+department condition, display Senior Employee if experience is at least 5 years,
+ Junior Employee if experience is less than 2 years, and Mid-Level Employee otherwise. -->
+
+<!-- @for(employee of employees;track employee){
+    @if(employee.department === 'IT'){
+        @if(employee.experience >= 5){
+            <p>{{employee.name}} - Senior Employee</p>
+        } @else if(employee.experience <2){
+            <p>{{employee.name}} - Junior Employee</p>
+        } @else {
+            <p>{{employee.name}} - Mid-level Employee</p>
+        }
+    }
+ } -->
+
+<!-- ___________________________________________________________ -->
+
+
+<!-- 
+Using @for and @empty:
+
+Display each employee's name in a <p> element.
+
+If the array contains no employees, display No employees found. -->
+
+<!-- 1st way -->
+
+<!-- 
+@if(employees.filter(emp=>emp.department === 'Mechanical'); as EmployeeFiltered){
+    @for(employee of EmployeeFiltered; track employee.id){
+        <p>{{employee.name}}</p>
+    }
+    @empty{
+        <p>No Employee Found</p>
+    }
+} -->
+
+
+<!-- 2nd way -->
+
+<!-- @for(employee of employees.filter(i=>i.department === 'Mech');track employee.id){
+    <p>{{employee.name}}</p>
+}
+
+@empty {
+    <p>No Employees Found</p>
+} -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- switch  -->
+
+
+<!-- @for(employee of employeeList;track employee.id){
+
+    <p>{{employee.name}} - 
+
+    @switch(employee.status){
+        @case('Active'){
+            Employee is working
+        }
+        @case('Inactive'){
+            Employee is not working
+        }
+
+        @case('On Leave'){
+            Employee is on leave
+        }
+
+        @default {
+            Unknown Employee Status
+        }
+
+        
+    }
+
+    </p>
+} -->
+
+<!-- ___________________________________________________________ -->
+
+
+<!-- Use @for and @switch to display each employee's name and performance message.
+
+ Rating              Message 
+ Excellent           Outstanding performance
+ Good                Good performance
+ Average             Needs improvement
+ Poor                Performance review required
+ Any other value     Rating not available -->
+
+<!-- <table>
+    <thead>
+        <tr>
+            <th>Rating</th>
+            <th>Message</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @for(employeePer of employeePerformance;track employeePer.id){
+        <tr>
+            <td>{{employeePer.rating}}</td>
+            <td>
+                @switch(employeePer.rating){
+                @case('Excellent')
+                @case('Outstanding')
+                {
+                Outstanding performance
+                }
+                @case('Good'){
+                Good performance
+                }
+                @case('Average'){
+                Needs improvement
+                }
+                @case('Poor'){
+                Performance review required
+                }
+                @default{
+                Rating not available
+                }
+                }
+            </td>
+        </tr>
+
+        }
+
+    </tbody>
+
+
+</table> -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- older structural directives with ng if and ng for -->
+
+
+<!-- <div *ngFor="let i of employees">
+    <div *ngIf="i.department === 'IT';else otherDepartment">
+        <p>{{i.name}}</p>
+    </div>
+</div>
+
+<ng-template #otherDepartment>
+    <div>He don't belong to IT</div>
+</ng-template> -->
+
+<!-- ___________________________________________________________ -->
+<!-- 
+@for(employee of employees;track employee.id){ -->
+    <!-- @if(employee.isActive){
+        <p [ngClass]="employee.isActive"? >The employee is Available</p>
+    } @else {
+        <p>The employee is not Available</p>
+    } -->
+     <!-- <p [ngStyle]="{'backgroundColor':'lightgreen','color':'orange'}">{{employee.name}}</p> -->
+     <!-- <p [ngClass]="isActive?'active':'inactive'">{{employee.department}}</p> -->
+      <!-- <p [class.active]="isActive">{{employee.department}}</p> -->
+<!-- } -->
+
+<!-- ___________________________________________________________ -->
+
+<!-- custom directive -->
+<p appHighlight>On mouse over</p>
+<button appHighlight>Click</button>
+<input appHighlight placeholder="Enter your name"/>

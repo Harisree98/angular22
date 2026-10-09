@@ -21,3 +21,9 @@ heading - @viewchild - for manipulating DOM ELEMENTS
 headingChild - @viewchildren --for manipulating multiple DOM elements (or a single DOM elment when there are multiple)
 
 
+highlight -- directive for host listener 
+
+angulardirective -- strctural and attribure directive **** must read
+
+
+

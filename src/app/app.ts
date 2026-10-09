@@ -9,10 +9,13 @@ import { RouterOutlet } from '@angular/router';
 import { Accordionparent } from './components/accordionparent/accordionparent';
 import { Heading } from './components/heading/heading';
 import { Headingchild } from './components/headingchild/headingchild';
+import { GetDataFromService } from './components/get-data-from-service/get-data-from-service';
+import { SendDataToService } from './components/send-data-to-service/send-data-to-service';
+import { Angulardirectives } from './components/angulardirectives/angulardirectives';
 
 
 @Component({
-  imports: [Headingchild],
+  imports: [Headingchild,GetDataFromService, SendDataToService,Angulardirectives],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
